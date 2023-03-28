@@ -18,8 +18,8 @@ const Edit = () => {
 
             const dete = resul.data;
             
-            setTitle(dete.title);
-            setUserId(dete.userId);
+            setName(dete.name);
+            setEmail(dete.email);
         }catch(err){
             console.log(err);
         }
@@ -43,7 +43,7 @@ const Edit = () => {
     }
     return(
         <div className="conteiner">
-            <h2>Edit seu post: {title}</h2>
+            <h2>Edit seu post: {name}</h2>
             <form onSubmit={(e) => handleDados(e)}>
                 <div className="form_control">
                     <label htmlFor="title">Titulo:</label>
