@@ -64,6 +64,8 @@
     .close-btn{
         padding:1rem;
         font-size:2rem;
+        display: flex;
+        justify-content: end;
     }
     
     .overlay-text{
