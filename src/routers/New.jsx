@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import blogFetch from "../axios/config";
 const New = () => {
     const [name, setName] = useState();
-    const [body, setBody] = useState();
+    const [email, setEmail] = useState();
 
     const navigat = useNavigate();
 
@@ -13,10 +13,10 @@ const New = () => {
 
       const port = {
                 name,
-                body,
+                email,
             }
 
-       await blogFetch.post("/todos", port);
+       await blogFetch.post("/comments", port);
 
         navigat("/");
     }
@@ -32,7 +32,7 @@ const New = () => {
 
                 <div className="form_control">
                     <label htmlFor="body">Conteúdo:</label>
-                   <textarea name="body" id="body" placeholder="Digite sua menssagem" onChange={(e) => setBody(e.target.value)}></textarea>                
+                   <textarea name="body" id="body" placeholder="Digite sua menssagem" onChange={(e) => setEmail(e.target.value)}></textarea>                
                 </div>
 
                 <input type="submit" value="Enviar post" className="btn-enviar"/>

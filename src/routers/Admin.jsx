@@ -8,7 +8,7 @@ const Admin = () => {
 
     const resulDados = async() => {
         try{
-            const resultado = await blogFetch.get("/todos");
+            const resultado = await blogFetch.get("/comments");
             
             const dete = resultado.data;
 
@@ -27,7 +27,7 @@ const Admin = () => {
         console.log(id);
 
         try{
-           await blogFetch.delete(`todos/${id}`);
+           await blogFetch.delete(`/comments/${id}`);
            const filterPost = dados.filter((itens) => itens.id !== id)
             setDados(filterPost);
         }catch(err){
@@ -45,8 +45,8 @@ const Admin = () => {
             ) : (
                 dados.map((itens) => (
                     <div className="conteineritens" key={itens.id}>
-                        <h2>{itens.title}</h2>
-                        <p>{itens.userId}</p>
+                        <h2>{itens.name}</h2>
+                        <p>{itens.email}</p>
                         <div className="actions">
                             <Link className=" edit-btn" to={`/posts/edit/${itens.id}`}>Editar</Link>
                             <button className=" delete-btn" onClick={() => handleSubmit(itens.id)}>Excluir</button>

@@ -8,7 +8,7 @@ const Home = () => {
     
     const getInfor = async() => {
        try{
-        const resultado = await blogFetch.get("/todos");
+        const resultado = await blogFetch.get("/comments");
 
         const date = resultado.data;
 
@@ -32,8 +32,8 @@ const Home = () => {
             ):(
                 dados.map((itens) => (
                     <div className="conteineritens" key={itens.id}>
-                        <h2>{itens.title}</h2>
-                        <p>{itens.userId}</p>
+                        <h2>{itens.name}</h2>
+                        <p>{itens.email}</p>
                         <Link to={`/posts/${itens.id}`} className="btn">Ler mais</Link>
                     </div>
                 ))

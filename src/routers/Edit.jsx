@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Edit = () => {
-    const [title, setTitle] = useState();
-    const [userid, setUserId] = useState();
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
 
     const navigat = useNavigate();
 
@@ -14,7 +14,7 @@ const Edit = () => {
 
     const pegandoDados = async() => {
         try{
-            const resul = await blogFetch.get(`/todos/${id}`);
+            const resul = await blogFetch.get(`/comments/${id}`);
 
             const dete = resul.data;
             
@@ -33,11 +33,11 @@ const Edit = () => {
         e.preventDefault();
 
         const puts = {
-            title,
-            userid,
+            name,
+            email,
         }
 
-        await blogFetch.put(`/todos/${id}`,puts);
+        await blogFetch.put(`/comments/${id}`,puts);
 
         navigat("/");
     }
@@ -47,12 +47,12 @@ const Edit = () => {
             <form onSubmit={(e) => handleDados(e)}>
                 <div className="form_control">
                     <label htmlFor="title">Titulo:</label>
-                    <input type="text" name="title" id="title" placeholder="Digite o titulo" onChange={(e) => setTitle(e.target.value)} value={title || ""}/>                    
+                    <input type="text" name="title" id="title" placeholder="Digite o titulo" onChange={(e) => setName(e.target.value)} value={name || ""}/>                    
                 </div>
 
                 <div className="form_control">
                     <label htmlFor="body">Conteúdo:</label>
-                   <textarea name="body" id="body" placeholder="Digite sua menssagem" onChange={(e) => setUserId(e.target.value)} value={userid || ""}></textarea>                
+                   <textarea name="body" id="body" placeholder="Digite sua menssagem" onChange={(e) => setEmail(e.target.value)} value={email || ""}></textarea>                
                 </div>
 
                 <input type="submit" value="Enviar post" className="btn"/>

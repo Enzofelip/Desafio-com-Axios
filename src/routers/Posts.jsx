@@ -10,7 +10,7 @@ const Posts = () => {
 
     const pegandoDados = async() => {
         try{
-            const resul = await blogFetch.get(`/todos/${id}`);
+            const resul = await blogFetch.get(`/comments/${id}`);
 
             const dete = resul.data;
 
@@ -27,8 +27,8 @@ const Posts = () => {
     return(
         <div className="conteiner_post">
             <h1>Posts</h1>
-            <p>{dados.id}</p>
-            <p>{dados.title}</p>
+            <p>{dados.name}</p>
+            <p>{dados.email}</p>
             <p>{dados.body}</p>
         </div>
     )
