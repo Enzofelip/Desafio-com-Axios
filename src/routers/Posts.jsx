@@ -10,7 +10,7 @@ const Posts = () => {
 
     const pegandoDados = async() => {
         try{
-            const resul = await blogFetch.get(`/arquivos/${id}`);
+            const resul = await blogFetch.get(`/todos/${id}`);
 
             const dete = resul.data;
 

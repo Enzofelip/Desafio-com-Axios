@@ -16,7 +16,7 @@ const New = () => {
                 body,
             }
 
-       await blogFetch.post("/arquivos", port);
+       await blogFetch.post("/todos", port);
 
         navigat("/");
     }
